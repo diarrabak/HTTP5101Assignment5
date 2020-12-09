@@ -1,0 +1,36 @@
+﻿@model  Assignment5_B_Diarra.Models.Teacher
+@{
+    ViewBag.Title = "UpdateTeacher";
+}
+
+<h2>Update a Teacher</h2>
+
+<h2 id="return-to-list"><a href="/Teacher/Show/@Model.teacherId">Back to updated teacher</a></h2>
+
+
+<form action="/Teacher/Update/@Model.teacherId" method="POST"  name="newTeacher">
+
+    <div>
+        <label for="fname">Teacher first name</label>
+        <input type="text" id="fname" name="fname" value="@Model.firstName"  />
+    </div>
+    <div>
+        <label for="lname">Teacher last name</label>
+        <input type="text" id="lname" name="lname" value="@Model.surName" />
+    </div>
+    <div>
+        <label for="employeenum">Employee number</label>
+        <input type="text" id="employeenum" name="employeenumber" value="@Model.employeeNumber" />
+    </div>
+    <div>
+        <label for="hiredate">Hire date</label>
+        <input type="text" id="hiredate" name="hireDate" value="@Model.hireDate" />
+    </div>
+    <div>
+        <label for="salary">Salary</label>
+        <input type="text" id="salary" name="salary" value="@Model.salary" />
+    </div>
+    <div>
+        <input type="submit" onclick="verify();" value="UpdateTeacher" />
+    </div>
+</form>
