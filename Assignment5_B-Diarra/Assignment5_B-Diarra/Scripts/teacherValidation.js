@@ -20,6 +20,7 @@ function verify() {
     //Pattern for employee number Txxx (T123, T385)
     var employeeRegex = /^\T\d{3}$/;
 
+
     //This function checks that the date and time are in the right range
     function checkdate() {
         var dateTest = true;
@@ -113,4 +114,24 @@ function confirmation() {
         }
     }
     deleteForm.onsubmit = confirmDelete;
+}
+
+
+//Deletion confirmation
+function verifyClass() {
+
+    var classForm = document.forms.UpdateClass;
+    var teacherId = classForm.teacherid;
+    var classRegex = /^\d{1,2}$/;
+    function validate() {
+        //The teacher Id is between 1 and 99
+        if (!classRegex.test(parseInt(teacherId.value))) {
+            teacherId.style.backgroundColor = "red";
+            teacherId.focus();
+            return false;
+        } else {
+            teacherId.style.backgroundColor = "white";
+        }
+    }
+    classForm.onsubmit = validate;
 }

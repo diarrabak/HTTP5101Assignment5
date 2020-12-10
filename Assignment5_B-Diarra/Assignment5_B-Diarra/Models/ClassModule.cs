@@ -9,9 +9,13 @@ namespace Assignment5_B_Diarra.Models
     public class ClassModule
     {
         public int classId;
+        public int teacherId;
         public string classCode;
         public string className;
         public DateTime startDate;
         public DateTime finishDate;
+
+        //Teacher information
+        public Teacher professor;
     }
 }

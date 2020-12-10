@@ -85,7 +85,7 @@ li:hover ul{
 #salary {
     margin-left: 84px;
 }
-input[value="Addteacher"], input[value="UpdateTeacher"] {
+input[value="Addteacher"], input[value="UpdateTeacher"], input[value="UpdateClass"] {
     border-radius: 10px 10px;
     color: white;
     background-color: blue;
@@ -93,7 +93,7 @@ input[value="Addteacher"], input[value="UpdateTeacher"] {
     width: 135px;
     font-size: 1.25em;
 }
-    input[value="Addteacher"]:hover, input[value="UpdateTeacher"]:hover {
+    input[value="Addteacher"]:hover, input[value="UpdateTeacher"]:hover, input[value="UpdateClass"]:hover {
         color: red;
         background-color: lightgreen;
         border: 2px blue solid;
@@ -130,3 +130,11 @@ input[value="Delete teacher"] {
     #newteacher a:hover, #newteacherAjax a:hover {
         text-decoration: underline;
     }
+#add-remove-teacher {
+    position: relative;
+    top: -45px;
+    margin-left: 500px;
+    text-decoration: none;
+    color: deeppink;
+    font-size: 1.5em;
+}

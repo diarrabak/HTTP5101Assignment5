@@ -1,0 +1,27 @@
+﻿@model  Assignment5_B_Diarra.Models.ClassModule
+@{
+    ViewBag.Title = "ShowClass";
+}
+
+<h2>Show Class</h2>
+
+<h2 id="return-to-list"><a href="/Classes/classList">Back to class list</a></h2>
+<h2 id="add-remove-teacher"><a href="/Classes/UpdateClass/@Model.classId">Change class teacher</a></h2>
+
+<h2>Module code: @Model.classCode</h2>
+
+<ul>
+    <li>
+        @if (Model.teacherId >0 && Model.professor.firstName!="")
+        {
+        <a href="/Teacher/Show/@Model.teacherId">@Model.professor.firstName @Model.professor.surName</a>
+        }
+        else
+        {
+         <a href="#">No professor for the module @Model.classCode</a>
+        }
+    </li>
+    <li>Module name: @Model.className </li>
+    <li>Starting on: @Model.startDate </li>
+    <li>Finishing on: @Model.finishDate </li>
+</ul>

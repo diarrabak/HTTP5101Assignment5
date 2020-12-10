@@ -1,0 +1,20 @@
+﻿@model  Assignment5_B_Diarra.Models.ClassModule
+@{
+    ViewBag.Title = "UpdateClass";
+}
+
+<h2>Update Class</h2>
+
+<h2 id="return-to-list"><a href="/Classes/ShowClass/@Model.classId">Back to updated class</a></h2>
+
+
+<form action="/Classes/UpdateClass/@Model.classId" method="POST" name="UpdateClass">
+
+    <div>
+        <label for="teacherid"> Class teacher Id</label>
+        <input type="text" id="teacherid" name="teacherid" value="@Model.teacherId" />
+    </div>
+    <div>
+        <input type="submit" onclick="verifyClass();" value="UpdateClass" />
+    </div>
+</form>

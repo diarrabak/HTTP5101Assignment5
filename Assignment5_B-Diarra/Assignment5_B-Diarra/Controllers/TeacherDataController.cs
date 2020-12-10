@@ -112,6 +112,7 @@ namespace Assignment5_B_Diarra.Controllers
                 professor.surName = ResultSet["teacherlname"].ToString();
                 professor.employeeNumber = ResultSet["employeenumber"].ToString();
                 professor.hireDate = (DateTime)ResultSet["hiredate"];  //Cast the result to date type
+               // professor.hireDate.ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss");
                 professor.salary = (Decimal)ResultSet["salary"];       // Cast result to decimal type
                 //Modules taught by the teacher
                 ClassModule module = new ClassModule();

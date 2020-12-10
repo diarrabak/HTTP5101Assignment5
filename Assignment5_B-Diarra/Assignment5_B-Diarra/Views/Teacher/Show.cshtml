@@ -32,19 +32,17 @@ else
     }
 
 <h2> @Model.firstName @Model.surName teaches @Model.modulesTaught.Count @classe</h2>
-    <ul>
-        @foreach (var module in Model.modulesTaught)
-        {
-            <li> Module code: @module.classCode 
-                <ul>
-                    <li>Module name: @module.className </li>
-                    <li>Starting on: @module.startDate </li>
-                    <li>Finishing on: @module.finishDate </li>
-                </ul>
+<ul>
+    @foreach (var module in Model.modulesTaught)
+    {
+        <li> 
+        
+            <a href="/Classes/ShowClass/@module.classId"> Module code: @module.classCode</a>
+        
         </li>
-        }
+    }
 
-    </ul>
+</ul>
 }
 else
 {

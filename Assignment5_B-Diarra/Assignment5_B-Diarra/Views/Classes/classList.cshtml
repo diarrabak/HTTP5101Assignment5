@@ -9,13 +9,7 @@
     @foreach (var item in Model)
     {
         <li>
-            Module code @item.classCode
-            <ul>
-                <li>Module name    : @item.className</li>
-                <li>Starts on      : @item.startDate</li>
-                <li>Finishes on: @item.finishDate</li>
-
-            </ul>
+            <a href="/Classes/ShowClass/@item.teacherId"> @item.classCode</a>
         </li>
     }
 </ol>

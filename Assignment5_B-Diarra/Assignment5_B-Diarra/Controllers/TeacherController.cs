@@ -110,7 +110,7 @@ namespace Assignment5_B_Diarra.Controllers
             return View(SelectedTeacher);
         }
 
-        //POST : /Teacher/UpdateTeach
+        //POST : /Teacher/Update
         [HttpPost]
         public ActionResult Update(int id, string fname, string lname, string employeenumber, DateTime hireDate, decimal salary)
         {

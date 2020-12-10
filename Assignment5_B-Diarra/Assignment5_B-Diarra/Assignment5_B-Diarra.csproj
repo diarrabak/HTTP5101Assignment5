@@ -317,6 +317,8 @@
     <Content Include="Views\Teacher\Search.cshtml" />
     <Content Include="Views\Teacher\Show.cshtml" />
     <Content Include="Views\Teacher\Update.cshtml" />
+    <Content Include="Views\Classes\ShowClass.cshtml" />
+    <Content Include="Views\Classes\UpdateClass.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
