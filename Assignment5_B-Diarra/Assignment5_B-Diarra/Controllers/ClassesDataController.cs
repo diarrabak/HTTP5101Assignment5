@@ -69,6 +69,14 @@ namespace Assignment5_B_Diarra.Controllers
         }
 
 
+        /// <summary>
+        /// This method displays a class and its teacher
+        /// </summary>
+        /// <example>api/ClassesData/displayClasse/2</example>
+        /// <example>api/ClassesData/displayClasse/5</example>
+        /// <param name="id">Primary key of the class</param>
+        /// <returns>Returns the class which primary is in parameter</returns>
+
         [Route("api/ClassesData/displayClasse/{id}")]
 
         [HttpGet]
@@ -97,7 +105,7 @@ namespace Assignment5_B_Diarra.Controllers
             {
                 //Access Column information by the DB column name as an index
                 classe.classId = (int)ResultSet["classid"];
-                classe.teacherId = (int)(Int64)ResultSet["teacherid"];
+                classe.teacherId = (int)(Int64)ResultSet["teacherid"];  //Int64 rquired for BIGINT
                 classe.classCode = ResultSet["classcode"].ToString();
                 classe.className = ResultSet["classname"].ToString();
                 classe.startDate = (DateTime)ResultSet["startdate"];  //Cast the result to date type
@@ -116,7 +124,11 @@ namespace Assignment5_B_Diarra.Controllers
             return classe;
         }
 
-
+        /// <summary>
+        /// This function updates only the teacherid of the class.It changes the teacher by another one
+        /// </summary>
+        /// <param name="id">Primary of the module in the table</param>
+        /// <param name="teacherId">Id of the teacher teaching the class</param>
         [HttpPost]
         [EnableCors(origins: "*", methods: "*", headers: "*")]
         public void UpdateClasse(int id, [FromBody] long teacherId)

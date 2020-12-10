@@ -70,11 +70,11 @@ namespace Assignment5_B_Diarra.Controllers
 
 
         /// <summary>
-        /// This method displays a teacher selected by his employee number. It also shows the modules taught by the teacher.
+        /// This method displays a teacher selected by his teacherid. It also shows the modules taught by the teacher.
         /// </summary>
-        /// <param name="id"></param>
-        /// <example>api/Teacher/displayTeacher/T381 </example>
-        /// <example>api/Teacher/displayTeacher/T378 </example>
+        /// <param name="id">The primary key identifying the teacher in the table</param>
+        /// <example>api/Teacher/displayTeacher/2 </example>
+        /// <example>api/Teacher/displayTeacher/4 </example>
         /// <returns>Teacher with the name, employee number, hire date and modules taught</returns>
         // 
        [Route("api/TeacherData/displayTeacher/{id}")]
@@ -139,7 +139,7 @@ namespace Assignment5_B_Diarra.Controllers
 
 
         /// <summary>
-        /// 
+        /// This method permits to insert a new teacher in the table
         /// </summary>
         /// <param name="fname">Teacher's first name</param>
         /// <param name="lname">Teacher's last name</param>
@@ -220,6 +220,16 @@ namespace Assignment5_B_Diarra.Controllers
 
         }
 
+        /// <summary>
+        /// This method permits to update a teacher properties
+        /// </summary>
+        /// <param name="id">teacherid, primary key from the table</param>
+        /// <param name="fname">Teacher name</param>
+        /// <param name="lname">Teacher surname</param>
+        /// <param name="employeenumber">Teacher employee number</param>
+        /// <param name="hireDate">Teacher hire date</param>
+        /// <param name="salary">Teacher salary</param>
+       
         [HttpPost]
         [EnableCors(origins: "*", methods: "*", headers: "*")]
         public void UpdateTeacher(int id, [FromBody] string fname, string lname, string employeenumber, DateTime hireDate, decimal salary)

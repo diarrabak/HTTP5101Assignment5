@@ -38,11 +38,11 @@ namespace Assignment5_B_Diarra.Controllers
 
 
         /// <summary>
-        /// This method displays a teacher selected by his employee number. It also shows the modules taught by the teacher.
+        /// This method displays a teacher selected by the primary key techearid. It also shows the modules taught by the teacher.
         /// </summary>
         /// <param name="id"></param>
-        /// <example>Teacher/Show/T378 </example>
-		/// <example>Teacher/Show/T381 </example>
+        /// <example>Teacher/Show/1 </example>
+		/// <example>Teacher/Show/5 </example>
         /// <returns>Teacher name, employee number, hire date and modules taught to view</returns>
         // 
         
@@ -56,7 +56,7 @@ namespace Assignment5_B_Diarra.Controllers
 
 
         /// <summary>
-        /// 
+        /// This method inserts a new teacher in the database
         /// </summary>
         /// <param name="fname">Teacher's first name</param>
         /// <param name="lname">Teacher's last name</param>
@@ -82,9 +82,9 @@ namespace Assignment5_B_Diarra.Controllers
         }
 
         /// <summary>
-        /// 
+        /// This method deletes a teacher from the table
         /// </summary>
-        /// <param name="id">Teacher's employee number</param>
+        /// <param name="id">Teacher primary key number from the table</param>
         /// <returns>Go back to the list of teachers</returns>
 
         //POST : /Teacher/removeTeacher
@@ -96,12 +96,25 @@ namespace Assignment5_B_Diarra.Controllers
             return RedirectToAction("List");
         }
 
+        /// <summary>
+        /// Ajax function allowing to add a new teacher to the table
+        /// </summary>
+        /// <returns></returns>
         //GET : /Author/Ajax_NewTeacher
         public ActionResult Ajax_NewTeacher()
         {
             return View();
 
         }
+
+        /// <summary>
+        /// This method permits to display the properties of teacher using the primary key in the table
+        /// </summary>
+        /// <param name="id">Primary key</param>
+        /// <example>Teacher/Update/2</example>
+        /// <example>Teacher/Update/6</example>
+        /// <returns>It returns the teacher whose key is parameter</returns>
+        //GET: Teacher/Update/{id}
         public ActionResult Update(int id)
         {
             TeacherDataController controller = new TeacherDataController();
@@ -110,13 +123,23 @@ namespace Assignment5_B_Diarra.Controllers
             return View(SelectedTeacher);
         }
 
+        /// <summary>
+        /// This method permits to add the property of the selected teacher
+        /// </summary>
+        /// <param name="id">teacherid, primary key from the table</param>
+        /// <param name="fname">Teacher name</param>
+        /// <param name="lname">Teacher surname</param>
+        /// <param name="employeenumber">Teacher employee number</param>
+        /// <param name="hireDate">Teacher hire date</param>
+        /// <param name="salary">Teacher salary</param>
+        /// <returns>Go back to the teacher who has be updated</returns>
         //POST : /Teacher/Update
         [HttpPost]
         public ActionResult Update(int id, string fname, string lname, string employeenumber, DateTime hireDate, decimal salary)
         {
             TeacherDataController controller = new TeacherDataController();
             controller.UpdateTeacher(id, fname, lname, employeenumber, hireDate, salary);
-            return RedirectToAction("Show/" + id);
+            return RedirectToAction("Show/" + id); //Go to the updated teacher
         }
 
     }
