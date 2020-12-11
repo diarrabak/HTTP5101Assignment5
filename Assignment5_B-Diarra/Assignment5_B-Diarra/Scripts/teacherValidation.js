@@ -125,7 +125,7 @@ function verifyClass() {
     var classRegex = /^\d{1,2}$/;
     function validate() {
         //The teacher Id is between 1 and 99
-        if (!classRegex.test(parseInt(teacherId.value))) {
+        if (!classRegex.test(parseInt(teacherId.value)) || isNaN(teacherId.value)) {
             teacherId.style.backgroundColor = "red";
             teacherId.focus();
             return false;

@@ -208,8 +208,8 @@ namespace Assignment5_B_Diarra.Controllers
             MySqlCommand cmd = Conn.CreateCommand();
 
             //This query deletes the teachers and all variables for which his references (Foreign Key) for referential integrity
-           // cmd.CommandText = "DELETE teachers, classes FROM teachers LEFT JOIN classes ON classes.teacherid=teachers.teacherid WHERE teachers.teacherid=@id";
-            cmd.CommandText = "DELETE FROM teachers WHERE teacherid=@id";
+            cmd.CommandText = "DELETE teachers, classes FROM teachers LEFT JOIN classes ON classes.teacherid=teachers.teacherid WHERE teachers.teacherid=@id";
+            //cmd.CommandText = "DELETE FROM teachers WHERE teacherid=@id";
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Prepare();
 

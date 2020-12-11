@@ -133,7 +133,9 @@ namespace Assignment5_B_Diarra.Controllers
         [EnableCors(origins: "*", methods: "*", headers: "*")]
         public void UpdateClasse(int id, [FromBody] long teacherId)
         {
-            if (teacherId > 0)
+            //Validation
+            //Teacher Id must be positive and not null
+            if (teacherId > 0 || !teacherId.Equals(null))
             {
                 //Create an instance of a connection
                 MySqlConnection Conn = School.AccessDatabase();
@@ -146,6 +148,7 @@ namespace Assignment5_B_Diarra.Controllers
                 MySqlCommand cmd = Conn.CreateCommand();
 
                 //The keys are added with their values in the table
+                //We change the foreign key of the teacher 
                 cmd.CommandText = "UPDATE classes SET teacherid=@teacherid WHERE classid=@classid";
                 cmd.Parameters.AddWithValue("@classid", id);
                 cmd.Parameters.AddWithValue("@teacherid", teacherId);
